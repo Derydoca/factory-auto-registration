@@ -7,7 +7,7 @@
 #define DLLEXPORT __declspec(dllimport)
 #endif
 
-class DLLEXPORT ObjectFactory
+class DLLEXPORT FoodFactory
 {
 public:
 	std::string getSomeString();

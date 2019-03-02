@@ -134,10 +134,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\ObjectFactory.h" />
+    <ClInclude Include="src\FoodObject.h" />
+    <ClInclude Include="src\FoodFactory.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ObjectFactory.cpp" />
+    <ClCompile Include="src\FoodFactory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
