@@ -3,8 +3,10 @@
   <ItemGroup>
     <ClInclude Include="src\FoodObject.h" />
     <ClInclude Include="src\FoodFactory.h" />
+    <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FoodFactory.cpp" />
+    <ClCompile Include="src\pch.cpp" />
   </ItemGroup>
 </Project>
