@@ -2,12 +2,13 @@
 #include <string>
 
 #if defined DLL_EXPORT
-#define DECLDIR __declspec(dllexport)
+#define DLLEXPORT __declspec(dllexport)
 #else
-#define DECLDIR __declspec(dllimport)
+#define DLLEXPORT __declspec(dllimport)
 #endif
 
-extern "C"
+class DLLEXPORT ObjectFactory
 {
-	DECLDIR std::string getSomeString();
-}
+public:
+	std::string getSomeString();
+};
