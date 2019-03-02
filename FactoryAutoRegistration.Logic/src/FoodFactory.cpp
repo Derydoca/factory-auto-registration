@@ -5,14 +5,29 @@ FoodFactory::FoodFactory()
 {
 }
 
-std::string FoodFactory::getFactoryStatus()
+FoodFactory::~FoodFactory()
 {
-	return "* FoodFactory is now open, however, it looks extremely empty inside with the exception of one young employee behind the counter with a nametag that reads \"Dan\". *\n";
 }
 
-std::shared_ptr<FoodObject> FoodFactory::orderFood(std::string foodType)
+std::shared_ptr<FoodObject> FoodFactory::orderFood(std::string typeName)
 {
+	auto it = s_generators.find(typeName);
+	if (it != s_generators.end())
+	{
+		return it->second();
+	}
+
 	return nullptr;
+}
+
+bool FoodFactory::registerGenerator(const std::string & typeName, const foodInstanceGenerator & funcCreate)
+{
+	auto it = s_generators.find(typeName);
+	if (it == s_generators.end())
+	{
+		s_generators[typeName] = funcCreate;
+	}
+	return false;
 }
 
 FoodFactory & FoodFactory::get()
