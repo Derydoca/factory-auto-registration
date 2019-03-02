@@ -4,9 +4,11 @@
     <ClInclude Include="src\FoodObject.h" />
     <ClInclude Include="src\FoodFactory.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\food\Taco.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FoodFactory.cpp" />
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\food\Taco.cpp" />
   </ItemGroup>
 </Project>

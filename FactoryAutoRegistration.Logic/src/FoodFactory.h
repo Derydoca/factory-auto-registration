@@ -2,7 +2,8 @@
 #include "pch.h"
 #include <string>
 #include <unordered_map>
-#include "FoodObject.h"
+
+class FoodObject;
 
 typedef std::shared_ptr<FoodObject>(*foodInstanceGenerator)();
 
