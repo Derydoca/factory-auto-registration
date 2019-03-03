@@ -6,11 +6,13 @@
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\food\Taco.h" />
     <ClInclude Include="src\food\Burrito.h" />
+    <ClInclude Include="src\food\Hamburger.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FoodFactory.cpp" />
     <ClCompile Include="src\pch.cpp" />
     <ClCompile Include="src\food\Taco.cpp" />
     <ClCompile Include="src\food\Burrito.cpp" />
+    <ClCompile Include="src\food\Hamburger.cpp" />
   </ItemGroup>
 </Project>

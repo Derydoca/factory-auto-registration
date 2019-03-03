@@ -9,4 +9,5 @@ public:
 	Burrito();
 
 	virtual int getCalories() const override { return 800; }
+	virtual bool isCommonlyOrdered() const override { return true; }
 };

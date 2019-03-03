@@ -9,4 +9,5 @@ public:
 	Taco();
 
 	virtual int getCalories() const override { return 200; }
+	virtual bool isCommonlyOrdered() const override { return true; }
 };

@@ -149,12 +149,14 @@
     <ClInclude Include="src\FoodObject.h" />
     <ClInclude Include="src\FoodFactory.h" />
     <ClInclude Include="src\food\Burrito.h" />
+    <ClInclude Include="src\food\Hamburger.h" />
     <ClInclude Include="src\food\Taco.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FoodFactory.cpp" />
     <ClCompile Include="src\food\Burrito.cpp" />
+    <ClCompile Include="src\food\Hamburger.cpp" />
     <ClCompile Include="src\food\Taco.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
