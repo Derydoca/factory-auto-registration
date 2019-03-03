@@ -11,8 +11,8 @@ FoodFactory::~FoodFactory()
 
 std::shared_ptr<FoodObject> FoodFactory::orderFood(std::string typeName)
 {
-	auto it = s_generators.find(typeName);
-	if (it != s_generators.end())
+	auto it = m_generators.find(typeName);
+	if (it != m_generators.end())
 	{
 		return it->second();
 	}
@@ -22,12 +22,23 @@ std::shared_ptr<FoodObject> FoodFactory::orderFood(std::string typeName)
 
 bool FoodFactory::registerGenerator(const std::string & typeName, const foodInstanceGenerator & funcCreate)
 {
-	auto it = s_generators.find(typeName);
-	if (it == s_generators.end())
+	auto it = m_generators.find(typeName);
+	if (it == m_generators.end())
 	{
-		s_generators[typeName] = funcCreate;
+		m_generators[typeName] = funcCreate;
 	}
 	return false;
+}
+
+std::vector<std::string> FoodFactory::getMenu()
+{
+	auto menuItems = std::vector<std::string>();
+	menuItems.reserve(m_generators.size());
+	for (auto generator : m_generators)
+	{
+		menuItems.push_back(generator.first);
+	}
+	return menuItems;
 }
 
 FoodFactory & FoodFactory::get()

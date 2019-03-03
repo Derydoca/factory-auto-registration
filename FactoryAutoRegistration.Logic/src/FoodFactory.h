@@ -14,11 +14,12 @@ public:
 
 	std::shared_ptr<FoodObject> orderFood(std::string typeName);
 	bool registerGenerator(const std::string& typeName, const foodInstanceGenerator& funcCreate);
+	std::vector<std::string> getMenu();
 
 private:
 	FoodFactory();
 	FoodFactory(const FoodFactory&);
 	~FoodFactory();
 
-	std::unordered_map<std::string, foodInstanceGenerator> s_generators;
+	std::unordered_map<std::string, foodInstanceGenerator> m_generators;
 };
