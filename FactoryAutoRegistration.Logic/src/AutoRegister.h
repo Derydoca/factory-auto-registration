@@ -8,11 +8,14 @@ protected:
 };
 
 template <typename T>
-bool AutoRegister<T>::s_isRegistered = FoodFactory::get().registerGenerator(T::getStaticTypeName(), T::generateInstance);
+bool AutoRegister<T>::s_isRegistered = FoodFactory::get().registerGenerator(
+															T::getStaticTypeName(),
+															[]() {
+																return std::static_pointer_cast<FoodObject>(std::make_shared<T>());
+															});
 
 #define AUTOREGISTER(TYPE) \
 public:\
-	static std::shared_ptr<FoodObject> generateInstance() { return std::static_pointer_cast<FoodObject>(std::make_shared<TYPE>()); }\
 	static std::string getStaticTypeName() { return #TYPE; }\
 	virtual std::string getTypeName() override { return #TYPE; }\
 private:\
