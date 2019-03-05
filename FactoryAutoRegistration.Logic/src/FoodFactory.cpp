@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "FoodFactory.h"
 
 FoodFactory::FoodFactory()
@@ -26,6 +25,7 @@ bool FoodFactory::registerGenerator(const std::string & typeName, const foodInst
 	if (it == m_generators.end())
 	{
 		m_generators[typeName] = funcCreate;
+		return true;
 	}
 	return false;
 }

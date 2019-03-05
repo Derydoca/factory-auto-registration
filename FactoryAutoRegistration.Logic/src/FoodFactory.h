@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 #include <string>
 #include <unordered_map>
 
@@ -7,14 +6,14 @@ class FoodObject;
 
 typedef std::shared_ptr<FoodObject>(*foodInstanceGenerator)();
 
-class DLLEXPORT FoodFactory
+class FoodFactory
 {
 public:
-	static FoodFactory& get();
+	__declspec(dllexport) static FoodFactory& get();
 
-	std::shared_ptr<FoodObject> orderFood(std::string typeName);
-	bool registerGenerator(const std::string& typeName, const foodInstanceGenerator& funcCreate);
-	std::vector<std::string> getMenu();
+	__declspec(dllexport) std::vector<std::string> getMenu();
+	__declspec(dllexport) std::shared_ptr<FoodObject> orderFood(std::string typeName);
+	__declspec(dllexport) bool registerGenerator(const std::string& typeName, const foodInstanceGenerator& funcCreate);
 
 private:
 	FoodFactory();
