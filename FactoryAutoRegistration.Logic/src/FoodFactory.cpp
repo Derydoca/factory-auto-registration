@@ -8,7 +8,7 @@ FoodFactory::~FoodFactory()
 {
 }
 
-std::shared_ptr<FoodObject> FoodFactory::orderFood(std::string typeName)
+FoodObject* FoodFactory::orderFood(std::string typeName)
 {
 	auto it = m_generators.find(typeName);
 	if (it != m_generators.end())

@@ -10,7 +10,8 @@ namespace FoodFactoryRegistrations {
 		{
 			FoodFactory::get().registerGenerator(
 				id,
-				[]() { return std::static_pointer_cast<FoodObject>(std::make_shared<T>()); });
+				[]() { return static_cast<FoodObject*>(new T()); }
+			);
 		}
 	};
 
