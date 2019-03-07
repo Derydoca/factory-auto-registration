@@ -6,7 +6,7 @@
     <ClInclude Include="src\food\Taco.h" />
     <ClInclude Include="src\food\Burrito.h" />
     <ClInclude Include="src\food\Hamburger.h" />
-    <ClInclude Include="src\AutoRegister.h" />
+    <ClInclude Include="src\FoodFactoryRegistration.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FoodFactory.cpp" />
