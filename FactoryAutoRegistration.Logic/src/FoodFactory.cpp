@@ -30,15 +30,16 @@ bool FoodFactory::registerGenerator(const std::string & typeName, const foodInst
 	return false;
 }
 
-std::vector<std::string> FoodFactory::getMenu()
+void FoodFactory::getMenu(int & count, std::string* & items)
 {
-	auto menuItems = std::vector<std::string>();
-	menuItems.reserve(m_generators.size());
+	count = m_generators.size();
+	items = new std::string[4];
+
+	int i = 0;
 	for (auto generator : m_generators)
 	{
-		menuItems.push_back(generator.first);
+		items[i++] = generator.first;
 	}
-	return menuItems;
 }
 
 FoodFactory & FoodFactory::get()

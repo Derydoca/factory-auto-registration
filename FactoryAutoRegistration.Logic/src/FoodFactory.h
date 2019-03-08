@@ -17,7 +17,7 @@ class FoodFactory
 public:
 	DLL_INTERFACE static FoodFactory& get();
 
-	DLL_INTERFACE std::vector<std::string> getMenu();
+	DLL_INTERFACE void getMenu(int & count, std::string* & items);
 	DLL_INTERFACE FoodObject* orderFood(std::string typeName);
 	DLL_INTERFACE bool registerGenerator(const std::string& typeName, const foodInstanceGenerator& funcCreate);
 
