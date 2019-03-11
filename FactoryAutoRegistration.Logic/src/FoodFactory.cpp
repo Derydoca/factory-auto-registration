@@ -21,13 +21,7 @@ FoodObject* FoodFactory::orderFood(std::string typeName)
 
 bool FoodFactory::registerGenerator(const std::string & typeName, const foodInstanceGenerator & funcCreate)
 {
-	auto it = m_generators.find(typeName);
-	if (it == m_generators.end())
-	{
-		m_generators[typeName] = funcCreate;
-		return true;
-	}
-	return false;
+	return m_generators.insert(std::make_pair(typeName, funcCreate)).second;
 }
 
 void FoodFactory::getMenu(int & count, std::string* & items)
