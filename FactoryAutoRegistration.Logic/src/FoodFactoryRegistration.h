@@ -6,7 +6,7 @@ namespace FoodFactoryRegistrations {
 	class FoodFactoryRegistration
 	{
 	public:
-		FoodFactoryRegistration(const char * id)
+		FoodFactoryRegistration(const char* id)
 		{
 			FoodFactory::get().registerGenerator(
 				id,

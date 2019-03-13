@@ -8,7 +8,7 @@ FoodFactory::~FoodFactory()
 {
 }
 
-FoodObject* FoodFactory::orderFood(const char * typeName)
+FoodObject* FoodFactory::orderFood(const char* typeName)
 {
 	auto it = m_generators.find(typeName);
 	if (it != m_generators.end())
@@ -19,21 +19,21 @@ FoodObject* FoodFactory::orderFood(const char * typeName)
 	return nullptr;
 }
 
-bool FoodFactory::registerGenerator(const char * typeName, const foodInstanceGenerator & funcCreate)
+bool FoodFactory::registerGenerator(const char* typeName, const foodInstanceGenerator & funcCreate)
 {
 	return m_generators.insert(std::make_pair(typeName, funcCreate)).second;
 }
 
-const char * * FoodFactory::getMenu(int & count)
+const char** FoodFactory::getMenu(int & count)
 {
 	count = m_generators.size();
-	const char * * arrayHead = new const char * [count];
+	const char** arrayHead = new const char* [count];
 
 	int i = 0;
 	for (auto g : m_generators)
 	{
 		size_t bufferSize = g.first.length() + 1;
-		char * generatorIdBuffer = new char[bufferSize];
+		char* generatorIdBuffer = new char[bufferSize];
 		strncpy_s(generatorIdBuffer, bufferSize, g.first.c_str(), g.first.length());
 		arrayHead[i++] = generatorIdBuffer;
 	}
