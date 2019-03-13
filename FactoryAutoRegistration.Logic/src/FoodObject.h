@@ -1,5 +1,4 @@
 #pragma once
-#include "FoodFactory.h"
 #include "FoodFactoryRegistration.h"
 
 class FoodObject

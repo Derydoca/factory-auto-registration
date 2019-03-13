@@ -1,4 +1,5 @@
 #pragma once
+#include "FoodFactory.h"
 
 namespace FoodFactoryRegistrations {
 
