@@ -24,16 +24,21 @@ bool FoodFactory::registerGenerator(const std::string & typeName, const foodInst
 	return m_generators.insert(std::make_pair(typeName, funcCreate)).second;
 }
 
-void FoodFactory::getMenu(int & count, std::string* & items)
+const char * * FoodFactory::getMenu(int & count)
 {
 	count = m_generators.size();
-	items = new std::string[4];
+	const char * * arrayHead = new const char * [count];
 
 	int i = 0;
-	for (auto generator : m_generators)
+	for (auto g : m_generators)
 	{
-		items[i++] = generator.first;
+		size_t bufferSize = g.first.length() + 1;
+		char * generatorIdBuffer = new char[bufferSize];
+		strncpy_s(generatorIdBuffer, bufferSize, g.first.c_str(), g.first.length());
+		arrayHead[i++] = generatorIdBuffer;
 	}
+
+	return arrayHead;
 }
 
 FoodFactory & FoodFactory::get()
