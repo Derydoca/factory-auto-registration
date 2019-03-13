@@ -8,7 +8,7 @@ FoodFactory::~FoodFactory()
 {
 }
 
-FoodObject* FoodFactory::orderFood(std::string typeName)
+FoodObject* FoodFactory::orderFood(const char * typeName)
 {
 	auto it = m_generators.find(typeName);
 	if (it != m_generators.end())
