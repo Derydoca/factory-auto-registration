@@ -19,7 +19,7 @@ FoodObject* FoodFactory::orderFood(const char * typeName)
 	return nullptr;
 }
 
-bool FoodFactory::registerGenerator(const std::string & typeName, const foodInstanceGenerator & funcCreate)
+bool FoodFactory::registerGenerator(const char * typeName, const foodInstanceGenerator & funcCreate)
 {
 	return m_generators.insert(std::make_pair(typeName, funcCreate)).second;
 }

@@ -19,7 +19,7 @@ public:
 
 	DLL_INTERFACE const char * * getMenu(int & count);
 	DLL_INTERFACE FoodObject* orderFood(const char * typeName);
-	DLL_INTERFACE bool registerGenerator(const std::string& typeName, const foodInstanceGenerator& funcCreate);
+	DLL_INTERFACE bool registerGenerator(const char * typeName, const foodInstanceGenerator& funcCreate);
 
 private:
 	FoodFactory();
