@@ -8,7 +8,7 @@ FoodFactory::~FoodFactory()
 {
 }
 
-std::shared_ptr<FoodObject> FoodFactory::orderFood(std::string typeName)
+FoodObject* FoodFactory::orderFood(const char* typeName)
 {
 	auto it = m_generators.find(typeName);
 	if (it != m_generators.end())
@@ -19,26 +19,26 @@ std::shared_ptr<FoodObject> FoodFactory::orderFood(std::string typeName)
 	return nullptr;
 }
 
-bool FoodFactory::registerGenerator(const std::string & typeName, const foodInstanceGenerator & funcCreate)
+bool FoodFactory::registerGenerator(const char* typeName, const foodInstanceGenerator & funcCreate)
 {
-	auto it = m_generators.find(typeName);
-	if (it == m_generators.end())
-	{
-		m_generators[typeName] = funcCreate;
-		return true;
-	}
-	return false;
+	return m_generators.insert(std::make_pair(typeName, funcCreate)).second;
 }
 
-std::vector<std::string> FoodFactory::getMenu()
+const char** FoodFactory::getMenu(int & count)
 {
-	auto menuItems = std::vector<std::string>();
-	menuItems.reserve(m_generators.size());
-	for (auto generator : m_generators)
+	count = m_generators.size();
+	const char** arrayHead = new const char* [count];
+
+	int i = 0;
+	for (auto g : m_generators)
 	{
-		menuItems.push_back(generator.first);
+		size_t bufferSize = g.first.length() + 1;
+		char* generatorIdBuffer = new char[bufferSize];
+		strncpy_s(generatorIdBuffer, bufferSize, g.first.c_str(), g.first.length());
+		arrayHead[i++] = generatorIdBuffer;
 	}
-	return menuItems;
+
+	return arrayHead;
 }
 
 FoodFactory & FoodFactory::get()

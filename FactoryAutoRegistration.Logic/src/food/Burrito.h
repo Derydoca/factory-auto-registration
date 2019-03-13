@@ -1,10 +1,13 @@
 #pragma once
 #include "FoodObject.h"
 
-class Burrito : public FoodObject, AutoRegister<Burrito>
+class Burrito : public FoodObject
 {
-	AUTOREGISTER(Burrito);
 public:
 	virtual int getCalories() const override { return 800; }
 	virtual bool isCommonlyOrdered() const override { return true; }
 };
+
+namespace FoodFactoryRegistrations {
+	FoodFactoryRegistration<Burrito> _Burrito("Burrito");
+}

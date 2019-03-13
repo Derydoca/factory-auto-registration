@@ -154,7 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\AutoRegister.h" />
+    <ClInclude Include="src\FoodFactoryRegistration.h" />
     <ClInclude Include="src\FoodObject.h" />
     <ClInclude Include="src\FoodFactory.h" />
     <ClInclude Include="src\food\Burrito.h" />
